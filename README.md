@@ -28,9 +28,9 @@ This module keeps track of the songs played by each user, creating a history of 
 
 ## Contributors
 
-- [Jay Kalbi](https://github.com/JayKalbi)
-
 - [Ronak Vekariya](https://github.com/Ronakvekariya)
+
+- [Jay Kalbi](https://github.com/JayKalbi)
 
 - [Vraj Prajapati](https://github.com/vraj3125)
 
