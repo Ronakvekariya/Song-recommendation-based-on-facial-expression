@@ -30,10 +30,6 @@ This module keeps track of the songs played by each user, creating a history of 
 
 - [Ronak Vekariya](https://github.com/Ronakvekariya)
 
-- [Jay Kalbi](https://github.com/JayKalbi)
-
-- [Vraj Prajapati](https://github.com/vraj3125)
-
 ## License
 
 This project is licensed under the [MIT](https://github.com/JayKalbi/Song-Recommendation-based-on-Facial-Expression/tree/main?tab=MIT-1-ov-file#) License.
