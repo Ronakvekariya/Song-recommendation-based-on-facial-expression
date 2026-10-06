@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Local secrets
+.env
+.env.*
+
+# IDE
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
