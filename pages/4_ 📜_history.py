@@ -1,6 +1,8 @@
 import streamlit as st
 import mysql.connector
 
+from config import DB_CONFIG
+
 db_connection = mysql.connector.connect(
     host="localhost",
     user="root",

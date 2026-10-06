@@ -1,37 +1,119 @@
-# Song-recommendation-based-on-facial-expression
-This is a mini web application build with stream-lit (Python framework) , It facilitated with database  authentication , login and logout. In it's facial capture and emotion detection feature build using already deep learning will capture the dominate emotion and based on emotion system will recommend 6 song.
+# Emotion-Based Song Recommendation
 
-# Modules
-## 1. DeepFace
-This module is responsible for facial expression recognition using deep learning techniques. It analyzes the user's facial expression in real-time to determine their mood.
+A Streamlit application that uses facial-expression analysis to infer a user's dominant emotion and recommend songs that match the detected mood.
 
-## 2. Haar Cascade Algorithm
-The Haar cascade algorithm is utilized for face detection. It detects and locates faces within images or video frames, which is crucial for the facial expression recognition process.
+The project combines computer vision, deep learning inference, a recommendation workflow, a relational database, and the Spotify Web API in one interactive application.
 
-## 3. Streamlit
-Streamlit is used for building the user interface. It provides a simple and intuitive way to interact with the application, allowing users to log in, register, and receive song recommendations based on their facial expressions.
+## Demo flow
 
-## 4. MySQL Database
-MySQL is employed as the database management system for storing user data and song history. It ensures efficient data storage and retrieval, enabling personalized song recommendations and maintaining a history of songs played by each user.
+```
+Webcam
+  ↓
+Face detection (Haar Cascade)
+  ↓
+Emotion analysis (DeepFace)
+  ↓
+Dominant emotion
+  ↓
+Mood-specific Spotify playlist
+  ↓
+Track retrieval + recommendation
+  ↓
+Streamlit UI + listening history
+```
 
-## 5. Spotify API
-The Spotify API is utilized to access a vast library of songs and provide personalized recommendations based on the user's mood detected from facial expressions.
+## Features
 
-## 6. Authentication (Login, Logout, Register)
-This module handles user authentication functionalities, including user registration, login, and logout, ensuring secure access to the application and personalized song recommendations.
+- User registration and login backed by MySQL.
+- Webcam-based face detection.
+- Emotion analysis using DeepFace.
+- Mood-to-playlist recommendation logic.
+- Spotify track retrieval and embedded playback.
+- MySQL-based song history.
+- Streamlit multipage interface.
 
-## 7. Emotion Detection
-Emotion detection is a crucial part of the application, which determines the user's mood based on their facial expressions. It enables the system to recommend songs that match the user's current emotional state.
+## Technology
 
-## 8. Song History
-This module keeps track of the songs played by each user, creating a history of their listening preferences. It allows for personalized recommendations based on past song choices and helps improve the accuracy of future recommendations.
+**Python · Streamlit · OpenCV · DeepFace · MySQL · Spotipy · Spotify Web API · Requests**
 
-## Contributors
+## Project structure
 
-- [Ronak Vekariya](https://github.com/Ronakvekariya)
+```
+.
+├── 1_🔒_Login.py
+├── pages/
+│   ├── 2_📝_register.py
+│   ├── 3_😊🔍_Emotion Detection.py
+│   ├── 4_ 📜_history.py
+│   └── 5_🚪_Logout.py
+├── config.py
+├── .env.example
+└── README.md
+```
 
-## License
+## Local setup
 
-This project is licensed under the [MIT](https://github.com/JayKalbi/Song-Recommendation-based-on-Facial-Expression/tree/main?tab=MIT-1-ov-file#) License.
+### 1. Clone the repository
 
+```bash
+git clone https://github.com/Ronakvekariya/Song-recommendation-based-on-facial-expression.git
+cd Song-recommendation-based-on-facial-expression
+```
 
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it before installing the dependencies.
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure secrets
+
+Copy `.env.example` to `.env` and fill in your local MySQL and Spotify credentials.
+
+**Never commit `.env`.**
+
+### 5. Prepare the database
+
+The application expects a MySQL database named `emotion_detection_system` with the tables used by the login, registration, and history pages. The original project assumes these tables already exist.
+
+### 6. Run Streamlit
+
+```bash
+streamlit run 1_🔒_Login.py
+```
+
+The application uses the webcam for emotion detection, so it must be run in an environment with camera access.
+
+## Engineering notes
+
+This is an end-to-end prototype built to connect multiple AI and application components rather than a production recommendation service.
+
+Potential next improvements include:
+
+- hashing application user passwords instead of storing plaintext values;
+- moving database access into a dedicated service/module;
+- adding schema migrations and validation;
+- handling Spotify and webcam failures more explicitly;
+- adding tests for recommendation and data-access logic;
+- separating UI code from inference and recommendation services;
+- containerizing the application for reproducible deployment.
+
+## Security
+
+API credentials and database credentials are loaded from environment variables rather than source code.
+
+When deploying your own copy, create new credentials and keep them outside version control.
+
+## Author
+
+**Ronak Vekariya**
+
+[GitHub](https://github.com/Ronakvekariya)

@@ -14,6 +14,8 @@ import random
 import streamlit.components.v1 as components
 import mysql.connector
 
+from config import DB_CONFIG, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET
+
 client_id = 'a7e4097b60864b178167f9c287af7f4a'
 client_secret = 'f7e3954dbb4c4baba871a42a73e8b953'
 
@@ -206,7 +208,7 @@ def main():
 
         with col1:
             st.markdown("<h1 style='text-align: center; color : #fff; font-family:Montserrat;'>Emotion Detection</h1>", unsafe_allow_html=True)   
-        st.image("D://Ronak//SE_PROJECT//Emotion_Detection_Python-master//background.png")
+        st.image("background.png")
         col1, col2, col3, col4, col5 = st.columns(5)
 
         # Leave the first two columns empty
