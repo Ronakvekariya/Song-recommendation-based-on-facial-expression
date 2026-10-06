@@ -1,0 +1,9 @@
+streamlit
+mysql-connector-python
+requests
+Pillow
+numpy
+opencv-python
+deepface
+spotipy
+python-dotenv
