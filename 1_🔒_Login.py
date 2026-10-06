@@ -1,6 +1,8 @@
 import streamlit as st
 import mysql.connector
 
+from config import DB_CONFIG
+
 
 # Initialize session state variables
 if "username" not in st.session_state:
@@ -21,7 +23,7 @@ st.set_page_config(
 db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Ronak@@my1122",
+    password=DB_CONFIG["password"],
     database="emotion_detection_system"
 )
 
