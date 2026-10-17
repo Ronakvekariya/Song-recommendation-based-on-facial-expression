@@ -7,7 +7,7 @@ from config import DB_CONFIG
 db_connection = mysql.connector.connect(**DB_CONFIG)
 cursor = db_connection.cursor()
 
-if st.session_state["username"] != "":
+if st.session_state.get("username"):
     cursor.execute(
         "SELECT COUNT(*) FROM song_id WHERE user_password = %s",
         (st.session_state["password"],),
@@ -26,19 +26,15 @@ if st.session_state["username"] != "":
             "SELECT song_id FROM song_id WHERE user_password = %s",
             (st.session_state["password"],),
         )
-        result_list = [row[0] for row in cursor.fetchall()]
-        unique_list = list(set(result_list))
-
-        col_width = 700
-        col_height = 200
+        unique_list = list({row[0] for row in cursor.fetchall()})
 
         for track_id in unique_list:
             my_html = (
                 '<iframe src="https://open.spotify.com/embed/track/{}" '
-                'width="{}" height="240px" frameborder="0" '
+                'width="700" height="240" frameborder="0" '
                 'allowtransparency="true" allow="encrypted-media" '
                 'style="border-radius: 0.75rem;"></iframe>'
-            ).format(track_id, col_width, col_height)
+            ).format(track_id)
             st.markdown(my_html, unsafe_allow_html=True)
     else:
         st.markdown(
