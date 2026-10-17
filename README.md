@@ -108,7 +108,9 @@ Potential next improvements include:
 
 ## Security
 
-API credentials and database credentials are loaded from environment variables rather than source code.
+Third-party API credentials and database connection settings are loaded from environment variables rather than source code. The repository does not contain the local credentials used during development.
+
+The current application authentication is still a prototype: passwords are stored and matched directly in the existing database schema, and the session keeps the password to support the legacy history table. This should be replaced with hashed credentials and user-ID based history before production use.
 
 When deploying your own copy, create new credentials and keep them outside version control.
 
