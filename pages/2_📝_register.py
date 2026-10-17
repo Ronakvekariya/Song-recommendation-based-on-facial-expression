@@ -33,7 +33,6 @@ if st.button("Register"):
             (username, password, num_rows),
         )
         db_connection.commit()
-
         st.success("Registration successful!")
     else:
         st.warning("Please enter a username and password.")
