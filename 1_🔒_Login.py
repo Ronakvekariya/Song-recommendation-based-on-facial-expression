@@ -16,11 +16,9 @@ st.set_page_config(
 )
 
 db_connection = mysql.connector.connect(**DB_CONFIG)
-
 cursor = db_connection.cursor()
 cursor.execute("SELECT * FROM login_user")
 results = cursor.fetchall()
-
 cursor.close()
 db_connection.close()
 
@@ -35,7 +33,6 @@ img {
 </style>
 """
 st.markdown(css, unsafe_allow_html=True)
-
 st.image("logo1.png")
 
 css = """
